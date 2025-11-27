@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมคำนวณภาษีเงินได้บุคคลธรรมดา (แบบง่ายๆ)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+        <div class="circle circle-5"></div>
+        <div class="particles"></div>
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="icon-wrapper">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <h1>โปรแกรมคำนวณภาษีเงินได้บุคคลธรรมดา</h1>
+            <p class="subtitle">แบบง่ายๆ</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="input-group">
+                <label for="annual-income">
+                    <i class="fas fa-money-bill-wave"></i>
+                    เงินได้ทั้งปี
+                </label>
+                <div class="input-wrapper">
+                    <input type="number" id="annual-income" placeholder="กรุณากรอกเงินได้ทั้งปี">
+                    <span class="currency">บาท</span>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="expenses">
+                    <i class="fas fa-minus-circle"></i>
+                    หักค่าใช้จ่าย
+                </label>
+                <div class="input-wrapper">
+                    <input type="number" id="expenses" placeholder="กรุณากรอกค่าใช้จ่าย">
+                    <span class="currency">บาท</span>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="allowances">
+                    <i class="fas fa-gift"></i>
+                    ค่าลดหย่อน
+                </label>
+                <div class="input-wrapper">
+                    <input type="number" id="allowances" placeholder="กรุณากรอกค่าลดหย่อน">
+                    <span class="currency">บาท</span>
+                </div>
+            </div>
+            
+            <button id="calculate-btn" onclick="calculateTax()">
+                <i class="fas fa-calculator"></i>
+                <span>คำนวณภาษี</span>
+            </button>
+        </div>
+        
+        <div class="result-container" id="result-container">
+            <div class="result-header">
+                <i class="fas fa-chart-line"></i>
+                <span>ผลการคำนวณ</span>
+            </div>
+            <div class="result-content">
+                <div id="net-income" class="result-item">
+                    <div class="result-label">
+                        <i class="fas fa-wallet"></i>
+                        เงินได้สุทธิ
+                    </div>
+                    <div class="result-value" id="net-income-value">-</div>
+                </div>
+                <div id="result" class="result-item highlight">
+                    <div class="result-label">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        ภาษีที่ต้องจ่าย
+                    </div>
+                    <div class="result-value" id="tax-value">-</div>
+                </div>
+            </div>
+            <div class="reminder">
+                <i class="fas fa-info-circle"></i>
+                <span>อย่าลืมจ่ายภาษีกันนะครับ</span>
+            </div>
+        </div>
+        
+        <div class="chart-container" id="chart-container">
+            <div class="chart-header">
+                <i class="fas fa-chart-bar"></i>
+                <span>กราฟแสดงภาษี</span>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart-bars" id="chart-bars"></div>
+                <div class="chart-labels" id="chart-labels"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
